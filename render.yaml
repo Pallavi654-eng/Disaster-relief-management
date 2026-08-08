@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: disaster-relief-server
+    env: docker
+    plan: free
+    region: oregon
+    image:
+      url: docker.io/your-username/disaster-relief-server:latest
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+
+  - type: web
+    name: disaster-relief-client
+    env: docker
+    plan: free
+    region: oregon
+    image:
+      url: docker.io/your-username/disaster-relief-client:latest
+    envVars:
+      - key: PORT
+        value: 80
