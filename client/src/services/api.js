@@ -1,9 +1,13 @@
 import { io } from 'socket.io-client';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE =
+  import.meta.env.VITE_API_URL || '/api';
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL ||
-  (import.meta.env.PROD ? window.location.origin : 'http://localhost:5000');
+const SOCKET_URL =
+  import.meta.env.VITE_SOCKET_URL ||
+  (import.meta.env.PROD
+    ? window.location.origin
+    : 'http://localhost:5000');
 
 export const socket = io(SOCKET_URL, {
   autoConnect: true,
@@ -35,10 +39,13 @@ export async function getAiTriagePreview(description) {
 }
 
 export async function triggerDsaMatch(incidentId) {
-  const res = await fetch(`${API_BASE}/dispatches/auto-match/${incidentId}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' }
-  });
+  const res = await fetch(
+    `${API_BASE}/dispatches/auto-match/${incidentId}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }
+  );
   return res.json();
 }
 
