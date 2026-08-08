@@ -36,3 +36,6 @@ Push to `main` and GitHub Actions will:
 1. Build the Docker images
 2. Push them to Docker Hub
 3. Trigger Render redeploys
+
+
+CI/CD pipeline configured with GitHub Actions.
